@@ -1,5 +1,7 @@
 import express from "express";
 import prisma from "./config/prisma.js";
+import patientRoutes from "./routes/patient.routes.js";
+import doctorRoutes from "./routes/doctor.routes.js";
 
 const app = express();
 
@@ -14,6 +16,9 @@ app.get("/api/specialties", async (_req, res) => {
 
   res.json(specialties);
 });
+
+app.use("/api/patients", patientRoutes);
+app.use("/api/doctors", doctorRoutes);
 
 const PORT = process.env.PORT ?? 3000;
 
