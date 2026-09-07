@@ -9,7 +9,11 @@ import authRoutes from "./routes/auth.routes.js";
 
 import appointmentRoutes from "./routes/appointment.routes.js";
 
+import reportRoutes from "./routes/report.routes.js";
+
 const app = express();
+
+app.use("/api/reports", reportRoutes);
 
 app.use(express.json());
 
