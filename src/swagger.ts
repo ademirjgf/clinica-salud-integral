@@ -25,6 +25,7 @@ const endpointsFiles = [
   "./src/routes/doctor.routes.ts",
   "./src/routes/auth.routes.ts",
   "./src/routes/appointment.routes.ts",
+  "./src/routes/report.routes.ts",
 ];
 
 swaggerAutogen()(outputFile, endpointsFiles, doc);

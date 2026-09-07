@@ -99,8 +99,13 @@ export async function updateAppointmentStatusController(
     const cita = await updateAppointmentStatus(id, estado);
 
     return res.json(cita);
-  } catch (error: any) {
-    if (error?.code === "P2025") {
+  } catch (error: unknown) {
+    if (
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      error.code === "P2025"
+    ) {
       return res.status(404).json({
         message: "Cita no encontrada",
       });
