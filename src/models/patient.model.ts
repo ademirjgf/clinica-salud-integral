@@ -26,5 +26,19 @@ export function getPatientById(id: number) {
     where: {
       id,
     },
+    include: {
+      citas: {
+        include: {
+          medico: {
+            include: {
+              especialidad: true,
+            },
+          },
+        },
+        orderBy: {
+          fechaHora: "desc",
+        },
+      },
+    },
   });
 }
