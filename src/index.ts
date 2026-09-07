@@ -7,6 +7,8 @@ import patientRoutes from "./routes/patient.routes.js";
 import doctorRoutes from "./routes/doctor.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 
+import appointmentRoutes from "./routes/appointment.routes.js";
+
 const app = express();
 
 app.use(express.json());
@@ -26,6 +28,7 @@ app.get("/api/specialties", async (_req, res) => {
 app.use("/api/patients", patientRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/appointments", appointmentRoutes);
 
 const PORT = process.env.PORT ?? 3000;
 
